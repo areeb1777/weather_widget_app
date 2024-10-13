@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 
 // Import icons from the Lucide React library
 import { CloudIcon, MapPinIcon, ThermometerIcon } from "lucide-react";
-import { url } from "inspector";
+// import { url } from "inspector";
 
 // Define a TypeScript interface for weather data
 interface WeatherData {
