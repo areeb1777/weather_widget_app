@@ -1,7 +1,7 @@
 "use client"; // Enables client-side rendering for this component
 
 // Import necessary hooks and types from React
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react"; // Add useEffect here
 
 // Import custom UI components from the UI directory
 import {
@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button";
 
 // Import icons from the Lucide React library
 import { CloudIcon, MapPinIcon, ThermometerIcon } from "lucide-react";
-// import { url } from "inspector";
 
 // Define a TypeScript interface for weather data
 interface WeatherData {
@@ -33,6 +32,11 @@ export default function WeatherWidget() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // Check API key when component mounts
+  useEffect(() => {
+    console.log("API Key:", process.env.NEXT_PUBLIC_WEATHER_API_KEY);
+  }, []);
 
   // Function to handle the search form submission
   const handleSearch = async (e: FormEvent<HTMLFormElement>) => {
